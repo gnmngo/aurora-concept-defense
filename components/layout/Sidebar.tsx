@@ -10,7 +10,7 @@ const sections = [
   { id: "technical-background", label: "Technical Background" },
 ];
 
-export default function Sidebar() {
+export default function Sidebar({ onNavigate }: { onNavigate?: () => void }) {
   const [activeId, setActiveId] = useState("");
 
   useEffect(() => {
@@ -42,6 +42,8 @@ export default function Sidebar() {
       el.scrollIntoView({ behavior: "smooth", block: "start" });
       setActiveId(id);
     }
+    // Close mobile sidebar after clicking a link
+    if (onNavigate) onNavigate();
   };
 
   return (
