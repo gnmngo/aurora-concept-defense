@@ -1,26 +1,53 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Lexend:wght@500;600;700&display=swap');
+
 @import "tailwindcss";
 
+/* ---------- Dark mode variant definition ---------- */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* ---------- Fonts and brand colours ---------- */
+@theme {
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-display: 'Lexend', 'Inter', sans-serif;
+  --color-royal: #2563eb;
+  --color-royal-light: #dbeafe;
+  --color-royal-dark: #1e40af;
+}
+
+/* ---------- Light mode (default) ---------- */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --bg: #ffffff;
+  --bg-card: #f8fafc;
+  --text-primary: #1e293b;
+  --text-secondary: #64748b;
+  --border: #e2e8f0;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* ---------- Dark mode ---------- */
+.dark {
+  --bg: #0f172a;
+  --bg-card: #1e293b;
+  --text-primary: #f1f5f9;
+  --text-secondary: #94a3b8;
+  --border: #334155;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
+/* ---------- Global body styles ---------- */
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
+  background: var(--bg);
+  color: var(--text-primary);
+  line-height: 1.65;
+  margin: 0;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  font-weight: 600;
+}
+
+/* ---------- Smooth-scroll offset for all sections ---------- */
+section[id] {
+  scroll-margin-top: 80px;   /* 64px header + 4px progress bar + breathing room */
 }
