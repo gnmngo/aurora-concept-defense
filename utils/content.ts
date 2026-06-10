@@ -1,11 +1,11 @@
 export const content = {
-  hero: {
-    title: "AURORA: Academic Unified Review, Observation, Rating, and Assessment System",
-    subtitle:
-      "A fully paperless thesis and capstone defense platform designed to modernize academic evaluation workflows at Partido State University.",
-    coreMessage:
-      "AURORA eliminates printed manuscripts and enables a fully digital, paperless academic defense ecosystem from Concept Defense to Final Defense.",
-  },
+ hero: {
+  title: "AURORA: Academic Unified Review, Observation, Rating, and Assessment System",
+  subtitle:
+    "A fully paperless thesis and capstone defense platform designed to modernize academic evaluation workflows at Partido State University.",
+  coreMessage:
+    "AURORA eliminates printed manuscripts and enables a fully digital, paperless academic defense ecosystem from Concept Defense to Final Defense.",
+},
   features: [
     {
       title: "Paperless Manuscript Submission",
