@@ -21,7 +21,7 @@ export const content = {
     },
     {
       title: "Smart Rubric‑Based Evaluation",
-      description: "Standardised scoring with customisable rubrics.",
+      description: "Standardized scoring with customisable rubrics.",
     },
     {
       title: "Version Control Tracking",
