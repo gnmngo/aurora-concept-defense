@@ -5,13 +5,8 @@ import { useState } from "react";
 export default function Workflow() {
   const [scenario, setScenario] = useState<"approved" | "revision">("approved");
 
-  // Helpers for styling based on active scenario
   const isApproved = scenario === "approved";
   const isRevision = scenario === "revision";
-
-  // Node positions (viewBox 0 0 1100 360)
-  // We'll define nodes with x,y,width,height and text
-  // Decision diamond uses a polygon
 
   return (
     <section id="workflow">
@@ -45,15 +40,14 @@ export default function Workflow() {
           </div>
         </div>
 
-        {/* Flowchart SVG */}
-        <div className="overflow-x-auto">
+        {/* Flowchart container with scroll on narrow screens */}
+        <div className="overflow-x-auto overflow-y-visible">
           <svg
-            viewBox="0 0 1100 360"
+            viewBox="-50 0 1100 400"
             className="w-full min-w-[700px] h-auto"
             xmlns="http://www.w3.org/2000/svg"
           >
             <defs>
-              {/* Arrowhead marker */}
               <marker
                 id="arrowhead"
                 markerWidth="10"
@@ -83,7 +77,6 @@ export default function Workflow() {
             </defs>
 
             {/* ---------- Connecting lines ---------- */}
-            {/* Main line: Submission -> Coordinator -> Panel -> SplitScreen -> Decision */}
             <line
               x1="140" y1="100" x2="270" y2="100"
               className={
@@ -143,9 +136,9 @@ export default function Workflow() {
               markerEnd={isRevision ? "url(#arrowhead-active)" : "url(#arrowhead)"}
             />
 
-            {/* Loop back from Revision to Coordinator (curved) */}
+            {/* Loop back from Revision to Coordinator */}
             <path
-              d="M 1040 190 Q 1050 250 700 280 Q 320 310 270 150"
+              d="M 1040 190 Q 1050 260 700 290 Q 320 320 270 150"
               fill="none"
               strokeWidth="2"
               className={
@@ -181,7 +174,7 @@ export default function Workflow() {
               </text>
             </g>
 
-            {/* Node 2: Coordinator Review */}
+            {/* Node 2: Coordinator */}
             <g>
               <rect
                 x="270" y="80" width="100" height="40" rx="6"
@@ -266,7 +259,7 @@ export default function Workflow() {
               </text>
             </g>
 
-            {/* Node 6a: Final Approval (upper branch) */}
+            {/* Node 6a: Final Approval */}
             <g opacity={isApproved ? 1 : 0.3}>
               <rect
                 x="1040" y="30" width="100" height="40" rx="6"
@@ -282,7 +275,7 @@ export default function Workflow() {
               </text>
             </g>
 
-            {/* Node 6b: Revision Required (lower branch) */}
+            {/* Node 6b: Revision Needed */}
             <g opacity={isRevision ? 1 : 0.3}>
               <rect
                 x="1040" y="130" width="100" height="40" rx="6"
@@ -298,7 +291,7 @@ export default function Workflow() {
               </text>
             </g>
 
-            {/* Node 7: Archive / Finish (after final approval, placed above) */}
+            {/* Node 7: Archive & Close (only visible on Approved path, now within view) */}
             {isApproved && (
               <g>
                 <rect
@@ -324,7 +317,7 @@ export default function Workflow() {
           </svg>
         </div>
         <p className="mt-4 text-sm text-slate-500 dark:text-slate-400">
-          Toggle the buttons above to see the path for an approved defense vs. one requiring revisions.  
+          Toggle the buttons above to see the path for an approved defense vs. one requiring revisions.
           Active branches glow and animate, while inactive branches are faded.
         </p>
       </div>
