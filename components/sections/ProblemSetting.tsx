@@ -1,13 +1,50 @@
 export default function ProblemSetting() {
   const issues = [
-    { title: "Excessive Printed Documents", description: "Every defense stage requires multiple printed manuscript copies, creating a heavy paper burden." },
-    { title: "High Printing Costs", description: "Students bear significant financial costs for printing and binding multiple copies." },
-    { title: "Environmental Waste", description: "Large‑scale paper consumption contributes directly to environmental degradation and waste." },
-    { title: "Delayed Feedback", description: "Physical manuscript circulation slows the review cycle, causing long waiting periods for feedback." },
-    { title: "Revision Tracking Difficulty", description: "Manually comparing multiple printed versions makes it hard to track changes and revisions." },
-    { title: "Lost or Damaged Sheets", description: "Physical evaluation sheets are at risk of being misplaced, damaged, or lost." },
-    { title: "Manual Grading Procedures", description: "Time‑consuming manual grading and calculation increase workload and error risk." },
-    { title: "No Centralized Records", description: "Lack of a permanent digital repository makes record‑keeping fragmented and unreliable." },
+    {
+      title: "Delayed Feedback Cycles",
+      description:
+        "Students wait days or weeks for panelist comments, limiting timely revision and iterative learning.",
+    },
+    {
+      title: "Inconsistent Evaluation Standards",
+      description:
+        "Without a centralised rubric‑based tool, panelists may apply varying criteria, reducing fairness.",
+    },
+    {
+      title: "Limited Revision Transparency",
+      description:
+        "Tracking changes across multiple printed versions is difficult, making it hard to show how feedback was addressed.",
+    },
+    {
+      title: "Disconnected Communication",
+      description:
+        "Feedback shared via paper or separate emails is not integrated with the workflow, causing confusion.",
+    },
+    {
+      title: "High Cognitive Load for Reviewers",
+      description:
+        "Panelists constantly switch between manuscripts, forms, and rubrics, increasing mental effort and reducing review quality.",
+    },
+    {
+      title: "Manual Workflow Coordination",
+      description:
+        "Coordinators manually schedule defenses, assign panelists, and track revisions — tasks that are time‑consuming and error‑prone.",
+    },
+    {
+      title: "Document Management & Risk of Loss",
+      description:
+        "Printed manuscripts and evaluation forms are susceptible to loss, damage, or misfiling, compromising academic records.",
+    },
+    {
+      title: "Lack of Audit Trail",
+      description:
+        "Without centralised logging of submissions and evaluations, institutions cannot demonstrate accountability required for accreditation.",
+    },
+    {
+      title: "Unsustainable Paper Consumption & Storage",
+      description:
+        "The paper‑based process leads to significant paper waste and physical storage burdens, contradicting sustainability goals.",
+    },
   ];
 
   return (
@@ -17,10 +54,12 @@ export default function ProblemSetting() {
           Problem Setting
         </h2>
         <p className="mb-6 leading-relaxed text-slate-600 dark:text-slate-300">
-          The existing thesis and capstone defense process heavily depends on printed manuscripts, resulting in an inefficient and unsustainable workflow. The key issues include:
+          The current paper‑based capstone defense system at Partido State University suffers from serious
+          educational, administrative, and environmental limitations. Existing tools address only isolated
+          tasks, leaving the full defense lifecycle fragmented and inefficient.
         </p>
 
-        {/* Issues grid — soft cards inside the section card */}
+        {/* Issues grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-6">
           {issues.map((issue) => (
             <div
@@ -53,7 +92,8 @@ export default function ProblemSetting() {
         </div>
 
         <p className="leading-relaxed text-slate-600 dark:text-slate-300">
-          These challenges highlight the urgent need for a paperless, centralized, and digital defense management system that improves efficiency while supporting sustainability initiatives.
+          These interconnected problems create an urgent need for a paperless, centralised, and integrated
+          defense management system — exactly the solution AURORA provides.
         </p>
       </div>
     </section>
