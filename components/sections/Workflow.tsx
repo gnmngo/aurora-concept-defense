@@ -15,7 +15,6 @@ export default function Workflow() {
           <h2 className="text-2xl font-semibold text-slate-900 dark:text-white">
             AURORA Workflow
           </h2>
-          {/* Scenario Toggle */}
           <div className="flex gap-2">
             <button
               onClick={() => setScenario("approved")}
@@ -40,154 +39,118 @@ export default function Workflow() {
           </div>
         </div>
 
-        {/* Flowchart container – scales to fit card */}
-        <div className="hidden md:block">
+        {/* Flowchart container: no min-width, scales to fit */}
+        <div className="hidden md:block w-full">
           <svg
-            viewBox="0 -40 950 380"
+            viewBox="0 0 1000 320"
             className="w-full h-auto"
             xmlns="http://www.w3.org/2000/svg"
+            preserveAspectRatio="xMidYMid meet"
           >
             <defs>
-              <marker
-                id="arrowhead"
-                markerWidth="10"
-                markerHeight="7"
-                refX="10"
-                refY="3.5"
-                orient="auto"
-              >
-                <polygon
-                  points="0 0, 10 3.5, 0 7"
-                  className="fill-slate-400 dark:fill-slate-500"
-                />
+              <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+                <polygon points="0 0, 10 3.5, 0 7" className="fill-slate-400 dark:fill-slate-500" />
               </marker>
-              <marker
-                id="arrowhead-active"
-                markerWidth="10"
-                markerHeight="7"
-                refX="10"
-                refY="3.5"
-                orient="auto"
-              >
-                <polygon
-                  points="0 0, 10 3.5, 0 7"
-                  className="fill-royal dark:fill-blue-400"
-                />
+              <marker id="arrowhead-active" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+                <polygon points="0 0, 10 3.5, 0 7" className="fill-royal dark:fill-blue-400" />
               </marker>
             </defs>
 
-            {/* Connecting lines (positions adjusted) */}
+            {/* ---- Connecting lines ---- */}
             {/* Student → Coordinator */}
-            <line
-              x1="115" y1="100" x2="220" y2="100"
+            <line x1="130" y1="140" x2="230" y2="140"
               className={isApproved ? "stroke-royal dark:stroke-blue-400 flow-line-active stroke-[2]" : "stroke-slate-300 dark:stroke-slate-600 stroke-[2]"}
-              markerEnd="url(#arrowhead)"
-            />
+              markerEnd="url(#arrowhead)" />
             {/* Coordinator → Panel */}
-            <line
-              x1="310" y1="100" x2="415" y2="100"
+            <line x1="330" y1="140" x2="430" y2="140"
               className={isApproved ? "stroke-royal dark:stroke-blue-400 flow-line-active stroke-[2]" : "stroke-slate-300 dark:stroke-slate-600 stroke-[2]"}
-              markerEnd="url(#arrowhead)"
-            />
+              markerEnd="url(#arrowhead)" />
             {/* Panel → SplitScreen */}
-            <line
-              x1="505" y1="100" x2="610" y2="100"
+            <line x1="530" y1="140" x2="630" y2="140"
               className={isApproved ? "stroke-royal dark:stroke-blue-400 flow-line-active stroke-[2]" : "stroke-slate-300 dark:stroke-slate-600 stroke-[2]"}
-              markerEnd="url(#arrowhead)"
-            />
+              markerEnd="url(#arrowhead)" />
             {/* SplitScreen → Decision */}
-            <line
-              x1="700" y1="100" x2="760" y2="100"
+            <line x1="730" y1="140" x2="790" y2="140"
               className={isApproved ? "stroke-royal dark:stroke-blue-400 flow-line-active stroke-[2]" : "stroke-slate-300 dark:stroke-slate-600 stroke-[2]"}
-              markerEnd="url(#arrowhead)"
-            />
+              markerEnd="url(#arrowhead)" />
 
-            {/* Decision to Approved */}
-            <path
-              d="M 790 95 Q 810 50 840 50 L 870 50"
-              fill="none"
-              strokeWidth="2"
+            {/* Decision to Approved (upper branch) */}
+            <path d="M 820 135 Q 840 90 870 90 L 900 90"
+              fill="none" strokeWidth="2"
               className={isApproved ? "stroke-royal dark:stroke-blue-400 flow-line-active" : "stroke-slate-300 dark:stroke-slate-600 opacity-30"}
-              markerEnd={isApproved ? "url(#arrowhead-active)" : "url(#arrowhead)"}
-            />
-            {/* Decision to Revision */}
-            <path
-              d="M 790 105 Q 810 150 840 150 L 870 150"
-              fill="none"
-              strokeWidth="2"
+              markerEnd={isApproved ? "url(#arrowhead-active)" : "url(#arrowhead)"} />
+            {/* Decision to Revision (lower branch) */}
+            <path d="M 820 145 Q 840 190 870 190 L 900 190"
+              fill="none" strokeWidth="2"
+              className={isRevision ? "stroke-royal dark:stroke-blue-400 flow-line-active" : "stroke-slate-300 dark:stroke-slate-600 opacity-30"}
+              markerEnd={isRevision ? "url(#arrowhead-active)" : "url(#arrowhead)"} />
+
+            {/* Revision loopback to Coordinator */}
+            <path d="M 900 230 Q 910 280 650 290 Q 380 310 230 200"
+              fill="none" strokeWidth="2"
               className={isRevision ? "stroke-royal dark:stroke-blue-400 flow-line-active" : "stroke-slate-300 dark:stroke-slate-600 opacity-30"}
               markerEnd={isRevision ? "url(#arrowhead-active)" : "url(#arrowhead)"}
-            />
+              strokeDasharray={isRevision ? "10,6" : "5,3"} />
 
-            {/* Loop back from Revision to Coordinator */}
-            <path
-              d="M 870 190 Q 880 240 650 260 Q 380 280 220 160"
-              fill="none"
-              strokeWidth="2"
-              className={isRevision ? "stroke-royal dark:stroke-blue-400 flow-line-active" : "stroke-slate-300 dark:stroke-slate-600 opacity-30"}
-              markerEnd={isRevision ? "url(#arrowhead-active)" : "url(#arrowhead)"}
-              strokeDasharray={isRevision ? "10,6" : "5,3"}
-            />
-
-            {/* NODES (compressed x positions) */}
-            {/* Node 1: Student */}
+            {/* ---- NODES ---- */}
+            {/* Student Submission */}
             <g>
-              <rect x="20" y="80" width="95" height="40" rx="6" className="fill-slate-100 dark:fill-slate-700 stroke-slate-300 dark:stroke-slate-600" strokeWidth="1.5" />
-              <text x="67" y="100" textAnchor="middle" dominantBaseline="middle" className="fill-slate-900 dark:fill-white text-xs font-semibold" fontSize="11">Student</text>
-              <text x="67" y="114" textAnchor="middle" dominantBaseline="middle" className="fill-slate-500 dark:fill-slate-400 text-[10px]" fontSize="9">Submission</text>
+              <rect x="30" y="120" width="100" height="40" rx="6" className="fill-slate-100 dark:fill-slate-700 stroke-slate-300 dark:stroke-slate-600" strokeWidth="1.5" />
+              <text x="80" y="140" textAnchor="middle" dominantBaseline="middle" className="fill-slate-900 dark:fill-white text-xs font-semibold" fontSize="11">Student</text>
+              <text x="80" y="154" textAnchor="middle" dominantBaseline="middle" className="fill-slate-500 dark:fill-slate-400 text-[10px]" fontSize="9">Submission</text>
             </g>
 
-            {/* Node 2: Coordinator */}
+            {/* Coordinator */}
             <g>
-              <rect x="220" y="80" width="90" height="40" rx="6" className="fill-slate-100 dark:fill-slate-700 stroke-slate-300 dark:stroke-slate-600" strokeWidth="1.5" />
-              <text x="265" y="100" textAnchor="middle" dominantBaseline="middle" className="fill-slate-900 dark:fill-white text-xs font-semibold" fontSize="11">Coordinator</text>
-              <text x="265" y="114" textAnchor="middle" dominantBaseline="middle" className="fill-slate-500 dark:fill-slate-400 text-[10px]" fontSize="9">Review &amp; Assign</text>
+              <rect x="230" y="120" width="100" height="40" rx="6" className="fill-slate-100 dark:fill-slate-700 stroke-slate-300 dark:stroke-slate-600" strokeWidth="1.5" />
+              <text x="280" y="140" textAnchor="middle" dominantBaseline="middle" className="fill-slate-900 dark:fill-white text-xs font-semibold" fontSize="11">Coordinator</text>
+              <text x="280" y="154" textAnchor="middle" dominantBaseline="middle" className="fill-slate-500 dark:fill-slate-400 text-[10px]" fontSize="9">Review &amp; Assign</text>
             </g>
 
-            {/* Node 3: Panel Assignment */}
+            {/* Panel Assignment */}
             <g>
-              <rect x="415" y="80" width="90" height="40" rx="6" className="fill-slate-100 dark:fill-slate-700 stroke-slate-300 dark:stroke-slate-600" strokeWidth="1.5" />
-              <text x="460" y="100" textAnchor="middle" dominantBaseline="middle" className="fill-slate-900 dark:fill-white text-xs font-semibold" fontSize="11">Panelists</text>
-              <text x="460" y="114" textAnchor="middle" dominantBaseline="middle" className="fill-slate-500 dark:fill-slate-400 text-[10px]" fontSize="9">Assigned</text>
+              <rect x="430" y="120" width="100" height="40" rx="6" className="fill-slate-100 dark:fill-slate-700 stroke-slate-300 dark:stroke-slate-600" strokeWidth="1.5" />
+              <text x="480" y="140" textAnchor="middle" dominantBaseline="middle" className="fill-slate-900 dark:fill-white text-xs font-semibold" fontSize="11">Panelists</text>
+              <text x="480" y="154" textAnchor="middle" dominantBaseline="middle" className="fill-slate-500 dark:fill-slate-400 text-[10px]" fontSize="9">Assigned</text>
             </g>
 
-            {/* Node 4: Split-Screen Evaluation */}
+            {/* Split-Screen Evaluation */}
             <g>
-              <rect x="610" y="80" width="90" height="40" rx="6" className="fill-slate-100 dark:fill-slate-700 stroke-slate-300 dark:stroke-slate-600" strokeWidth="1.5" />
-              <text x="655" y="100" textAnchor="middle" dominantBaseline="middle" className="fill-slate-900 dark:fill-white text-xs font-semibold" fontSize="11">Split-Screen</text>
-              <text x="655" y="114" textAnchor="middle" dominantBaseline="middle" className="fill-slate-500 dark:fill-slate-400 text-[10px]" fontSize="9">Evaluation</text>
+              <rect x="630" y="120" width="100" height="40" rx="6" className="fill-slate-100 dark:fill-slate-700 stroke-slate-300 dark:stroke-slate-600" strokeWidth="1.5" />
+              <text x="680" y="140" textAnchor="middle" dominantBaseline="middle" className="fill-slate-900 dark:fill-white text-xs font-semibold" fontSize="11">Split-Screen</text>
+              <text x="680" y="154" textAnchor="middle" dominantBaseline="middle" className="fill-slate-500 dark:fill-slate-400 text-[10px]" fontSize="9">Evaluation</text>
             </g>
 
-            {/* Node 5: Decision Diamond */}
+            {/* Decision Diamond */}
             <g>
-              <polygon points="760,90 790,100 760,110 730,100" className="fill-yellow-50 dark:fill-yellow-900/30 stroke-yellow-500 dark:stroke-yellow-400" strokeWidth="1.5" />
-              <text x="760" y="100" textAnchor="middle" dominantBaseline="middle" className="fill-yellow-800 dark:fill-yellow-300 text-[10px] font-semibold" fontSize="9">Decision</text>
+              <polygon points="790,130 820,140 790,150 760,140" className="fill-yellow-50 dark:fill-yellow-900/30 stroke-yellow-500 dark:stroke-yellow-400" strokeWidth="1.5" />
+              <text x="790" y="140" textAnchor="middle" dominantBaseline="middle" className="fill-yellow-800 dark:fill-yellow-300 text-[10px] font-semibold" fontSize="9">Decision</text>
             </g>
 
-            {/* Node 6a: Final Approval */}
+            {/* Final Approval (upper) */}
             <g opacity={isApproved ? 1 : 0.3}>
-              <rect x="870" y="30" width="90" height="40" rx="6" className="fill-green-50 dark:fill-green-900/20 stroke-green-400 dark:stroke-green-500" strokeWidth="1.5" />
-              <text x="915" y="50" textAnchor="middle" dominantBaseline="middle" className="fill-green-800 dark:fill-green-300 text-xs font-semibold" fontSize="11">Final Approval</text>
+              <rect x="900" y="70" width="100" height="40" rx="6" className="fill-green-50 dark:fill-green-900/20 stroke-green-400 dark:stroke-green-500" strokeWidth="1.5" />
+              <text x="950" y="90" textAnchor="middle" dominantBaseline="middle" className="fill-green-800 dark:fill-green-300 text-xs font-semibold" fontSize="11">Final Approval</text>
             </g>
 
-            {/* Node 6b: Revision Needed */}
+            {/* Revision Needed (lower) */}
             <g opacity={isRevision ? 1 : 0.3}>
-              <rect x="870" y="130" width="90" height="40" rx="6" className="fill-red-50 dark:fill-red-900/20 stroke-red-400 dark:stroke-red-500" strokeWidth="1.5" />
-              <text x="915" y="150" textAnchor="middle" dominantBaseline="middle" className="fill-red-800 dark:fill-red-300 text-xs font-semibold" fontSize="11">Revision Needed</text>
+              <rect x="900" y="170" width="100" height="40" rx="6" className="fill-red-50 dark:fill-red-900/20 stroke-red-400 dark:stroke-red-500" strokeWidth="1.5" />
+              <text x="950" y="190" textAnchor="middle" dominantBaseline="middle" className="fill-red-800 dark:fill-red-300 text-xs font-semibold" fontSize="11">Revision Needed</text>
             </g>
 
-            {/* Archive & Close (only on Approved) */}
+            {/* Archive & Close (only on approved path, placed above Final Approval) */}
             {isApproved && (
               <g>
-                <rect x="870" y="-20" width="90" height="30" rx="6" className="fill-slate-100 dark:fill-slate-700 stroke-slate-400 dark:stroke-slate-500" strokeWidth="1" />
-                <text x="915" y="-5" textAnchor="middle" dominantBaseline="middle" className="fill-slate-600 dark:fill-slate-300 text-[10px]" fontSize="9">Archive &amp; Close</text>
-                <line x1="915" y1="10" x2="915" y2="30" strokeWidth="2" className="stroke-royal dark:stroke-blue-400 flow-line-active" markerEnd="url(#arrowhead-active)" />
+                <rect x="900" y="20" width="100" height="30" rx="6" className="fill-slate-100 dark:fill-slate-700 stroke-slate-400 dark:stroke-slate-500" strokeWidth="1" />
+                <text x="950" y="35" textAnchor="middle" dominantBaseline="middle" className="fill-slate-600 dark:fill-slate-300 text-[10px]" fontSize="9">Archive &amp; Close</text>
+                <line x1="950" y1="50" x2="950" y2="70" strokeWidth="2" className="stroke-royal dark:stroke-blue-400 flow-line-active" markerEnd="url(#arrowhead-active)" />
               </g>
             )}
           </svg>
         </div>
 
-        {/* Vertical stepper for mobile (unchanged) */}
+        {/* Mobile vertical stepper */}
         <div className="md:hidden space-y-6">
           {[
             { title: "Student Submission", desc: "Student uploads the digital manuscript through the AURORA platform." },
