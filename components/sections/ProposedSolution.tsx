@@ -1,3 +1,5 @@
+import SplitScreenPreview from "./SplitScreenPreview";
+
 export default function ProposedSolution() {
   const features = [
     { title: "Paperless Manuscript Submission", description: "Upload and store thesis manuscripts entirely online — no printed copies needed." },
@@ -40,6 +42,9 @@ export default function ProposedSolution() {
             </p>
           </div>
         </div>
+
+        {/* ––––––––––––– NEW: Split‑Screen Feature Preview ––––––––––––– */}
+        <SplitScreenPreview />
 
         {/* Feature cards grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-6">
