@@ -21,31 +21,31 @@ export default function SplitScreenPreview() {
             📄 Digital Manuscript
           </p>
 
-          {/* Thesis title */}
+          {/* Project title */}
           <div>
             <h3 className="text-lg font-semibold text-slate-900 dark:text-white leading-snug">
-              Smart Campus Navigation using Augmented Reality
+              AURORA: Academic Unified Review, Observation, Rating, and Assessment System
             </h3>
             <p className="text-sm text-slate-500 dark:text-slate-400 mt-1">
-              John M. Dela Cruz · BS Information Technology
+              Gene Mañago · Bachelor of Science in Information Technology
             </p>
           </div>
 
-          {/* Abstract / section */}
+          {/* Abstract */}
           <div className="space-y-2">
             <h4 className="text-sm font-semibold text-slate-800 dark:text-slate-200">Abstract</h4>
             <p className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
-              This study aims to develop an AR mobile application that provides real‑time indoor and outdoor
-              navigation across the university campus, reducing the time required to locate offices and
-              facilities…
+              This study presents AURORA, a fully paperless web‑based defense management platform that
+              digitizes thesis and capstone evaluation workflows. The system enables online manuscript
+              submission, real‑time annotation, rubric‑based grading, and automated revision tracking…
             </p>
           </div>
 
           {/* Annotated block */}
           <div className="p-3 rounded-lg bg-yellow-50 dark:bg-yellow-900/10 border-l-4 border-yellow-500 text-sm text-slate-700 dark:text-slate-300">
             <span className="font-semibold text-yellow-700 dark:text-yellow-400">Reviewer Note:</span>{" "}
-            “The problem statement is clearly defined, but the scope needs to explicitly include indoor
-            navigation limits.”
+            “The system architecture is well‑defined. However, the feasibility assessment should include
+            a more detailed campus Wi‑Fi coverage analysis.”
           </div>
 
           {/* More manuscript text */}
@@ -99,8 +99,8 @@ export default function SplitScreenPreview() {
               Reviewer Comments
             </h4>
             <div className="p-3 bg-slate-50 dark:bg-slate-900/50 rounded-lg border border-slate-200 dark:border-slate-600 text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
-              “The proposed AR solution is relevant and technically sound. Minor revisions needed on the
-              problem scope. Ready for Title Defense.”
+              “The proposed paperless system addresses a real need at the university. Minor revision needed
+              on the Wi‑Fi feasibility section. Ready for Title Defense.”
             </div>
           </div>
 
