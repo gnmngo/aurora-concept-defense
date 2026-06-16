@@ -1,13 +1,47 @@
 import SplitScreenPreview from "./SplitScreenPreview";
 
 export default function ProposedSolution() {
-  const features = [
-    { title: "Paperless Manuscript Submission", description: "Upload and store thesis manuscripts entirely online — no printed copies needed." },
-    { title: "Real‑Time Digital Annotation", description: "Reviewers annotate directly on the digital manuscript, replacing handwritten comments." },
-    { title: "Online Grading & Rubric System", description: "Standardised evaluation using customisable rubrics and scoring tools." },
-    { title: "Structured Defense Workflow", description: "Supports all stages from Concept Defense to Final Defense in one unified system." },
-    { title: "Version Control & Tracking", description: "Every revision is automatically tracked, eliminating multiple printed drafts." },
-    { title: "Instant Feedback Delivery", description: "Feedback reaches candidates immediately — no physical document exchange required." },
+  const objectives = [
+    {
+      title: "Role‑Based Access Control",
+      description:
+        "Five distinct user roles with permissions and authentication via university credentials.",
+    },
+    {
+      title: "Digital Submission & Version Control",
+      description:
+        "Document upload with complete revision history for multiple defense stages.",
+    },
+    {
+      title: "Split‑Screen Annotation Workspace",
+      description:
+        "Dual‑pane interface with synchronized scrolling and inline annotation tools.",
+    },
+    {
+      title: "Rubric‑Based Assessment",
+      description:
+        "Customizable criteria per college, automatic score calculation, and panelist aggregation.",
+    },
+    {
+      title: "Real‑Time Feedback",
+      description:
+        "Threaded comments with notifications and email alerts for timely responses.",
+    },
+    {
+      title: "Automated Workflow Management",
+      description:
+        "Defense scheduling, panelist assignment, and status tracking with calendar integration.",
+    },
+    {
+      title: "Analytics Dashboards",
+      description:
+        "Real‑time KPIs and exportable reports for coordinators and administrators.",
+    },
+    {
+      title: "Usability Evaluation",
+      description:
+        "System usability and acceptance testing through SUS and UTAUT‑based surveys.",
+    },
   ];
 
   return (
@@ -17,7 +51,7 @@ export default function ProposedSolution() {
           Proposed Solution
         </h2>
 
-        {/* Core Innovation (accent line) */}
+        {/* Core Innovation Card */}
         <div className="bg-slate-50 dark:bg-slate-700/50 rounded-xl p-5 md:p-6 border border-slate-200 dark:border-slate-600 relative overflow-hidden mb-6">
           <div className="absolute left-0 top-0 bottom-0 w-1.5 bg-royal rounded-l-xl" />
           <div className="ml-4">
@@ -25,32 +59,45 @@ export default function ProposedSolution() {
               Core Innovation: Unified Paperless Split‑Screen Evaluation
             </h3>
             <p className="text-slate-600 dark:text-slate-300 mb-3 leading-relaxed">
-              AURORA introduces a split‑screen academic evaluation concept that redefines how thesis and capstone defenses are conducted in a paperless environment.
+              AURORA introduces a split‑screen academic evaluation concept that redefines how thesis and capstone
+              defenses are conducted in a paperless environment.
             </p>
             <p className="text-slate-600 dark:text-slate-300 mb-3 leading-relaxed">
-              Instead of separating document viewing and evaluation into different tools or printed workflows, AURORA conceptualizes a unified interface where:
+              Instead of separating document viewing and evaluation into different tools or printed workflows,
+              AURORA conceptualizes a unified interface where:
             </p>
             <ul className="list-disc ml-6 mb-3 text-slate-600 dark:text-slate-300 space-y-2">
-              <li><strong className="text-slate-900 dark:text-white">One side</strong> presents the digital manuscript for continuous reading.</li>
-              <li><strong className="text-slate-900 dark:text-white">The other side</strong> provides structured evaluation context such as feedback, insights, and system‑guided review elements.</li>
+              <li>
+                <strong className="text-slate-900 dark:text-white">One side</strong> presents the digital
+                manuscript for continuous reading.
+              </li>
+              <li>
+                <strong className="text-slate-900 dark:text-white">The other side</strong> provides structured
+                evaluation context such as feedback, insights, and system‑guided review elements.
+              </li>
             </ul>
             <p className="text-slate-600 dark:text-slate-300 mb-3 leading-relaxed">
-              This design concept aims to improve reviewer efficiency by reducing cognitive switching between documents and evaluation forms, allowing a more focused and continuous review process.
+              This design concept aims to improve reviewer efficiency by reducing cognitive switching between
+              documents and evaluation forms, allowing a more focused and continuous review process.
             </p>
             <p className="text-slate-700 dark:text-slate-200 font-medium">
-              The split‑screen approach represents AURORA’s key innovation in achieving a fully paperless and integrated academic defense workflow.
+              The split‑screen approach represents AURORA’s key innovation in achieving a fully paperless and
+              integrated academic defense workflow.
             </p>
           </div>
         </div>
 
-        {/* ––––––––––––– NEW: Split‑Screen Feature Preview ––––––––––––– */}
+        {/* Short description of the preview */}
+        <p className="text-sm text-slate-500 dark:text-slate-400 mb-3">
+          Visual representation of the split‑screen workspace:
+        </p>
         <SplitScreenPreview />
 
-        {/* Feature cards grid */}
+        {/* Feature cards grid – specific objectives */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-6">
-          {features.map((feature) => (
+          {objectives.map((obj) => (
             <div
-              key={feature.title}
+              key={obj.title}
               className="
                 group
                 bg-slate-50 dark:bg-slate-700/50
@@ -69,17 +116,19 @@ export default function ProposedSolution() {
                 </svg>
               </div>
               <h4 className="font-semibold text-base mb-1 text-slate-900 dark:text-white group-hover:text-royal dark:group-hover:text-blue-300 transition-colors">
-                {feature.title}
+                {obj.title}
               </h4>
               <p className="text-sm text-slate-600 dark:text-slate-300">
-                {feature.description}
+                {obj.description}
               </p>
             </div>
           ))}
         </div>
 
+        {/* Conclusion */}
         <p className="leading-relaxed text-slate-600 dark:text-slate-300">
-          By removing the dependency on printed documents and fragmented evaluation tools, AURORA ensures a faster, more organized, and environmentally responsible academic evaluation process.
+          By removing the dependency on printed documents and fragmented evaluation tools, AURORA ensures a
+          faster, more organized, and environmentally responsible academic evaluation process.
         </p>
       </div>
     </section>
