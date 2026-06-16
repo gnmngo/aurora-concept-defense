@@ -8,7 +8,7 @@ export default function ProblemSetting() {
     {
       title: "Inconsistent Evaluation Standards",
       description:
-        "Without a centralised rubric‑based tool, panelists may apply varying criteria, reducing fairness.",
+        "Without a centralized rubric‑based tool, panelists may apply varying criteria, reducing fairness.",
     },
     {
       title: "Limited Revision Transparency",
@@ -38,7 +38,7 @@ export default function ProblemSetting() {
     {
       title: "Lack of Audit Trail",
       description:
-        "Without centralised logging of submissions and evaluations, institutions cannot demonstrate accountability required for accreditation.",
+        "Without centralized logging of submissions and evaluations, institutions cannot demonstrate accountability required for accreditation.",
     },
     {
       title: "Unsustainable Paper Consumption & Storage",
@@ -92,7 +92,7 @@ export default function ProblemSetting() {
         </div>
 
         <p className="leading-relaxed text-slate-600 dark:text-slate-300">
-          These interconnected problems create an urgent need for a paperless, centralised, and integrated
+          These interconnected problems create an urgent need for a paperless, centralized, and integrated
           defense management system — exactly the solution AURORA provides.
         </p>
       </div>
