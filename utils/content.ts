@@ -33,9 +33,10 @@ export const content = {
     },
   ],
   projectConcept: [
-  "The proposed system, **AURORA (Academic Unified Review, Observation, Rating, and Assessment System)**, is a **paperless web‑based defense management platform** developed to modernize and digitize the thesis and capstone evaluation process at Partido State University.",
-  "Instead of printing multiple manuscript copies for panel review, AURORA allows students to upload **digital manuscripts** while **panelists, advisers, and evaluators conduct reviews entirely within the system**. Feedback, annotations, and grading are done in **real time**, creating a seamless paperless academic evaluation environment.",
-  "This system **centralizes submission, annotation, grading, and revision tracking** into a single platform, significantly **reducing paper usage and improving workflow efficiency**.",
+  "The digital transformation of capstone and thesis defense processes remains an **unresolved challenge** — existing tools handle only isolated tasks, not the full evaluation lifecycle.",
+  "**AURORA (Academic Unified Review, Observation, Rating, and Assessment System)** is a **web‑based, paperless platform** that integrates manuscript submission, digital annotation, rubric‑based evaluation, real‑time feedback, version control, scheduling, and analytics into a **single unified system**.",
+  "Its key innovation is a **split‑screen workspace** that lets panelists review manuscripts and complete assessments simultaneously, **reducing cognitive load and improving efficiency**.",
+  "Grounded in the **Unified Theory of Acceptance and Use of Technology (UTAUT)**, AURORA prioritizes intuitive design and measurable gains to encourage adoption. Designed for **Partido State University’s five colleges**, it eliminates paper, centralizes records, and supports **sustainability, accreditation readiness, and better learning outcomes** through timely, structured feedback.",
 ],
   problemSetting: {
     intro: "The existing thesis and capstone defense process heavily depends on printed manuscripts, resulting in an inefficient and unsustainable workflow.",
