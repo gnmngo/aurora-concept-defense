@@ -2,6 +2,7 @@ import Hero from "@/components/sections/Hero";
 import ProjectConcept from "@/components/sections/ProjectConcept";
 import ProblemSetting from "@/components/sections/ProblemSetting";
 import ProposedSolution from "@/components/sections/ProposedSolution";
+import Workflow from "@/components/sections/Workflow";           // <-- new
 import TechnicalBackground from "@/components/sections/TechnicalBackground";
 
 export default function ConceptDefensePage() {
@@ -11,6 +12,7 @@ export default function ConceptDefensePage() {
       <ProjectConcept />
       <ProblemSetting />
       <ProposedSolution />
+      <Workflow />                      {/* <-- new */}
       <TechnicalBackground />
     </div>
   );

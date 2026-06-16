@@ -7,6 +7,7 @@ const sections = [
   { id: "project-concept", label: "Project Concept" },
   { id: "problem-setting", label: "Problem Setting" },
   { id: "proposed-solution", label: "Proposed Solution" },
+  { id: "workflow", label: "Workflow" },
   { id: "technical-background", label: "Technical Background" },
 ];
 
