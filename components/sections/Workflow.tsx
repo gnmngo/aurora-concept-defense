@@ -40,11 +40,12 @@ export default function Workflow() {
           </div>
         </div>
 
-        {/* Flowchart container with scroll on narrow screens */}
-        <div className="overflow-x-auto overflow-y-visible">
+        {/* Flowchart container – ensures enough vertical space */}
+        <div className="overflow-x-auto" style={{ minHeight: "400px" }}>
           <svg
-            viewBox="-50 0 1100 400"
-            className="w-full min-w-[700px] h-auto"
+            viewBox="-50 -40 1100 450"
+            className="w-full min-w-[700px]"
+            style={{ height: "400px" }}
             xmlns="http://www.w3.org/2000/svg"
           >
             <defs>
@@ -291,7 +292,7 @@ export default function Workflow() {
               </text>
             </g>
 
-            {/* Node 7: Archive & Close (only visible on Approved path, now within view) */}
+            {/* Node 7: Archive & Close (now fully visible in viewBox) */}
             {isApproved && (
               <g>
                 <rect
